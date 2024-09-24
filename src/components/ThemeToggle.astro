@@ -1,0 +1,21 @@
+<script>
+  let isDark = document.querySelector("html")?.classList.contains("dark");
+  let buttonText = document.getElementById("buttonText");
+  const LIGHT_TEXT = "Light!";
+  const DARK_TEXT = "Dark!";
+  if (buttonText !== null)
+    buttonText.textContent = isDark ? LIGHT_TEXT : DARK_TEXT;
+  const toggleTheme = () => {
+    if (buttonText === null) return;
+    document.querySelector("html")?.classList.toggle("dark");
+    isDark = !isDark;
+    buttonText.textContent = isDark ? LIGHT_TEXT : DARK_TEXT;
+  };
+  document
+    .getElementById("themeButton")
+    ?.addEventListener("click", toggleTheme);
+</script>
+<button
+  class="border-zinc-300 bg-zinc-50 hover:bg-zinc-100 dark:border-zinc-600 dark:bg-zinc-900 dark:hover:bg-zinc-800 transition-colors border rounded-md px-2 py-1"
+  id="themeButton"><span id="buttonText"></span></button
+>
