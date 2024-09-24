@@ -1,10 +1,11 @@
 ---
+import type { Member } from "../lib/data";
+
 interface Props {
-  name: string;
-  position?: string;
+  member: Member;
 }
 
-const { name, position = "Medlem" } = Astro.props;
+const { member } = Astro.props;
 ---
 
 <div
@@ -16,7 +17,7 @@ const { name, position = "Medlem" } = Astro.props;
     <p>Image missing!</p>
   </div>
   <div class="flex items-baseline gap-1">
-    <h3 class="text-2xl">{name}</h3>
-    <h4 class="text-sm font-thin">{position}</h4>
+    <h3 class="text-2xl">{member.name}</h3>
+    <h4 class="text-sm font-thin">{member.position ?? "Medlem"}</h4>
   </div>
 </div>

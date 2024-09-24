@@ -1,6 +1,7 @@
 ---
 import MemberCard from "../components/MemberCard.astro";
 import Layout from "../layouts/Layout.astro";
+import { members } from "../lib/data";
 ---
 
 <Layout title="Fagkom<3">
@@ -13,18 +14,7 @@ import Layout from "../layouts/Layout.astro";
         Medlemmer:
       </h2>
       <div class="w-full flex flex-wrap gap-3 justify-center">
-        {
-          [
-            { name: "Ola", position: "Nestleder" },
-            { name: "Sara", position: "Tidligere leder" },
-            { name: "Aurora" },
-            { name: "Torunn", position: "Tillitsvalgt" },
-            { name: "Sasha" },
-            { name: "Gurveer" },
-          ].map((member) => (
-            <MemberCard name={member.name} position={member.position} />
-          ))
-        }
+        {members.map((member) => <MemberCard member={member} />)}
       </div>
     </section>
   </main>
